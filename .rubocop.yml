@@ -1,6 +1,8 @@
 AllCops:
+  TargetRubyVersion: 2.1
   DisplayCopNames: true
-
+  Exclude:
+    - '**/*.pb.rb'
 #
 # Style
 #
@@ -17,18 +19,21 @@ Style/SpaceBeforeFirstArg:
 Style/ConditionalAssignment:
   Enabled: false
 
+Style/ModuleFunction:
+  Enabled: false
+
 #
 # Metrics
 #
 
 Metrics/MethodLength:
-  Max: 22
+  Max: 50
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 15
 
-AllCops:
-  Include:
-    - '**/Rakefile'
-  Exclude:
-    - 'spec/**/*'
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Enabled: false
