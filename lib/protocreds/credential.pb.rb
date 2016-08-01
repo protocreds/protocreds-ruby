@@ -12,7 +12,14 @@ module Protocreds
   #
   class DateTime < ::Protobuf::Message; end
   class Identifier < ::Protobuf::Message; end
-  class Assertion < ::Protobuf::Message; end
+  class Assertion < ::Protobuf::Message
+    class Type < ::Protobuf::Enum
+      define :CLAIM, 1
+      define :CAVEAT, 2
+    end
+
+  end
+
   class Credential < ::Protobuf::Message; end
 
 
@@ -30,7 +37,7 @@ module Protocreds
   end
 
   class Assertion
-    required :bytes, :type, 1
+    required :bytes, :name, 1
     required :bytes, :value, 2
   end
 
